@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce App Js</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light">
+
+<nav class="navbar fixed-top">
+    <div class="logo">
+        ShopSoulaiman
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Deals</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+        <div class="search-box" >
+            <input type="text" id="searchInput" placeholder="Search products..." />
+            <i class="fas fa-search"></i>
+        </div>
+        <i class="fas fa-user icon"></i>
+        <div class="cart">
+            <i class="fas fa-shopping-cart icon"></i>
+            <span class="badge">3</span>
+        </div>
+        <div class="icon" id="themeToggle">
+            <i id="icon" class="fas fa-moon"></i>
+        </div>
+    </div>
+            
+</nav>
+
+<section class="banner">
+  <div class="banner-content">
+    <h1>Supermarket Shopping</h1>
+    <p>Best quality products at affordable prices</p>
+    <button>Shop Now</button>
+  </div>
+</section>
+
+<div class="welcome-modal" id="welcomeModal">
+    <div class="modal-content">
+        <button class="close-modal" id="closeModal">
+        &times;
+        </button>
+        <div class="modal-icon">
+        <i class="fas fa-glass-cheers"></i>
+        </div>
+        <h2 class="modal-title">
+        أهلاً وسهلاً بك 👋
+        </h2>
+        <p class="modal-text">
+        نحن سعداء جداً بزيارتك لموقعنا.
+        نأمل أن تجد هنا كل ما تبحث عنه وأن تكون
+        تجربتك معنا ممتعة ومفيدة.
+        </p>
+        <button class="btn btn-primary" id="startExploring">
+            <i class="fas fa-compass"></i> بدء الاستكشاف
+        </button>
+
+    </div>
+</div>
+
+
+<div class="container">
+    <h1 class="page-title">Our Products</h1>
+ 
+    <div class="filters">
+        <div class="filter-group">
+            <select id="categoryFilter" class="filter-select">
+                <option value="all">All Categories</option>
+                <option value="men's clothing">Men's Clothing</option>
+                <option value="women's clothing">Women's Clothing</option>
+                <option value="jewelry">Jewelery</option>
+                <option value="electronics">Electronics</option>
+            </select>
+
+            <select id="sortFilter" class="filter-select">
+                <option value="featured">Sort by: Featured</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="rating-desc">Rating: High to Low</option>
+            </select>
+        </div>
+    </div>
+
+<div class="products-grid" id="products-container">
+    <!-- Products will be dynamically inserted here -->
+</div>
+
+
+<!----------------footer--------------> 
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col-1">
+                        <h3>Download Our App</h3>
+                        <p>Download App for Android and iso mobile phone.</p>
+                        <div class="app-logo">
+                             <img src="images/play-store.png">
+                             <img src="images/app-store.png">
+                        </div>
+                    </div>
+                    <div class="footer-col-2">
+                        <img src="images/logo-white.png">
+                        <p>Our Purpose Is To Sustainably Make the Pleasure and Bensfits od Sports Accessible to the Many.</p>
+                    </div>
+                    <div class="footer-col-3">
+                        <h3>Useful Links</h3>
+                        <ul>
+                            <li>Coupons</li>
+                            <li>Blog Post</li>
+                            <li>Return Policy</li>
+                            <li>Join Affiliate</li>
+                        </ul>
+                    </div>
+                    <div class="footer-col-4">
+                        <h3>Follow us</h3>
+                        <ul>
+                            <li>Facebook</li>
+                            <li>Twitter</li>
+                            <li>Instagram</li>
+                            <li>YouTube</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+<!-- Bootstrap JS (REQUIRED) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
