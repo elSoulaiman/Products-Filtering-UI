@@ -2,13 +2,24 @@ const body = document.body;
 const themeToggle = document.getElementById('themeToggle');
 const icon = document.getElementById('icon');
 
+const savedTheme = localStorage.getItem('theme');
+if(savedTheme){
+  body.classList.add(savedTheme);
+}else{
+  body.classList.add('light');
+}
+// ======================Dark mode=========================
+
 themeToggle.addEventListener('click', function() {
     if (body.classList.contains('light')) {
         body.classList.replace('light', 'dark')
         //icon.classList.replace("fa-moon", "fa-sun");
+        localStorage.setItem('theme', 'dark');
     }else{
         body.classList.replace('dark', 'light');
         //icon.classList.replace("fa-sun", "fa-moon");
+        localStorage.setItem('theme', 'light');
+
     }
 });
 
@@ -325,26 +336,39 @@ function displayProducts(productsList) {
 
     });
 }
-
+// ======================selected category=========================
 
 const categoryFilter = document.getElementById('categoryFilter');
 const sortFilter = document.getElementById('sortFilter');
 const searchInput = document.getElementById('searchInput');
 
+const savedCategory = localStorage.getItem('selectedCategory');
+if(savedCategory){
+    categoryFilter.value = savedCategory;
+}
+
+const savedSort = localStorage.getItem('selectedSort');
+if(savedSort){
+    sortFilter.value = savedSort;
+}
+// ======================search products=========================
+
 function filterAndSortProducts() {
     let filteredProducts = products;
-
     const searchValue = searchInput.value.toLowerCase().trim();
-
     filteredProducts = filteredProducts.filter(product => 
         product.title.toLowerCase().includes(searchValue)
     );
+
     const selectedCategory = categoryFilter.value;
+    localStorage.setItem('selectedCategory', selectedCategory);
     if (selectedCategory !== 'all') {
         filteredProducts = filteredProducts.filter(product => product.category === selectedCategory);
     }
+// ======================sort products=========================
 
     const selectedSort = sortFilter.value;
+    localStorage.setItem('selectedSort', selectedSort);
     if (selectedSort === 'price-asc') {
         filteredProducts.sort((a, b) => a.price - b.price);
     } else if (selectedSort === 'price-desc') {
@@ -352,25 +376,12 @@ function filterAndSortProducts() {
     } else if (selectedSort === 'rating-desc') {
         filteredProducts.sort((a, b) => b.rating.rate - a.rating.rate);
     }
-
 displayProducts(filteredProducts);
-
-
 }
 searchInput.addEventListener("input", filterAndSortProducts);
 categoryFilter.addEventListener('change', filterAndSortProducts);
 sortFilter.addEventListener('change', filterAndSortProducts);
 filterAndSortProducts();
-
-
-
-
-
-
-
-
-
-
 
 
 displayProducts(products);
